@@ -1,6 +1,6 @@
 <?php
- include('config/connect.php');
-    /* if(isset($_POST['delete'])){
+include('config/connect.php');
+    if(isset($_POST['delete'])){
         $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
         $sql= "DELETE FROM books WHERE id = $id_to_delete";
         if(mysqli_query($conn, $sql)){
@@ -8,7 +8,7 @@
         }{
             echo 'error' .mysqli_error($conn);
         }
-    } */
+    }
 //check get request id pqrqm
     if(isset($_GET['id'])){
         $id = mysqli_real_escape_string($conn,$_GET['id']);
@@ -21,7 +21,7 @@
         //close connection
         mysqli_close($conn);
         
-    } 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +36,15 @@
         <h5 >description:</h5>
         <p ><?php echo htmlspecialchars($book['description']); ?></p>
         <h5>price:</h5>
-        <p > <?php echo htmlspecialchars($book['price']); ?>DH</p>
+        <p > <?php echo htmlspecialchars($book['price']); ?></p>
 
-        
-        
+        <form action="detail.php" method="POST">
+            <input type="hidden" name="id_to_delete" value="<?php echo $book['id'];?>">
+            <input type="submit" value="Delete" name="delete" class="btn brand z-depth-0">
+        </form>
         <?php else: ?>
             <h5>no such book exist</h5>
     <?php endif; ?>
-         <a href="acheter"><input type="submit" value="Acheter" name="" class="btn brand z-depth-0"></a> 
-
 </div>
 <?php include('template/footer.php');?>
 

@@ -37,7 +37,7 @@
         <body class="brand">
 
     <section class="container grey-text ">
-        <h4 class="center">Login</h4>
+        <h4 class="center white-text">Login</h4>
         <form action="loginitem.php" method="POST" class="white">
             <?php if(isset($_GET['error'])){ ?>
                 <h5 class="red-text"><?php echo $_GET['error'];?></h5>

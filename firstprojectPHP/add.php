@@ -1,5 +1,11 @@
+<?php include('template/header.php');
+    echo $_SESSION['nom'];?>
 <?php 
+
+
 include('config/connect.php');
+    
+    
     $errors = array('email'=>'','title'=>'','desc'=>'','price'=>'');
     $email=$title=$price=$desc='';
     if(isset($_POST['submit'])){
@@ -27,9 +33,7 @@ include('config/connect.php');
         }
         else{
             $desc=$_POST['desc'];
-            if(!preg_match('/^[a-zA-Z\s]+$/',$desc)){
-                $errors['desc'] = 'desc must be a valid desc address';
-            }
+            
         }
         if(empty($_POST['price'])){
             $errors['price'] = 'An price is required <br/>';
@@ -44,12 +48,15 @@ include('config/connect.php');
            
         }
         else{
+            
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $desc = mysqli_real_escape_string($conn, $_POST['desc']);
             $title = mysqli_real_escape_string($conn, $_POST['title']);
             $price = mysqli_real_escape_string($conn, $_POST['price']);
+            $nom = mysqli_real_escape_string($conn, $_SESSION['nom']);
+
             //create sql
-            $sql ="INSERT INTO books(title,description,email,price) VALUES('$title','$desc','$email',$price)";
+            $sql ="INSERT INTO books(title,description,nom,email,price) VALUES('$title','$desc','$nom','$email',$price)";
             //save to db and check
             if(mysqli_query($conn, $sql)){
                     //sucess
@@ -70,7 +77,7 @@ include('config/connect.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('template/header.php');?>
+   
 
     <section class="container grey-text">
         <h4 class="center">add a book</h4>
