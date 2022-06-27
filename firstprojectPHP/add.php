@@ -49,15 +49,16 @@ include('config/connect.php');
             $title = mysqli_real_escape_string($conn, $_POST['title']);
             $price = mysqli_real_escape_string($conn, $_POST['price']);
             //create sql
-            $sql ="INSERT INTO books(title,description,email,price) VALUES('$title','$desc','$email,'$price')";
+            $sql ="INSERT INTO books(title,description,email,price) VALUES('$title','$desc','$email',$price)";
             //save to db and check
             if(mysqli_query($conn, $sql)){
                     //sucess
+                    header('Location: index.php');
             }
             else{
-                echo 'error '
+                echo 'error ';
             }
-            header('Location: index.php');
+           
 
         }
         

@@ -25,12 +25,14 @@ mysqli_close($conn);
             <?php foreach($books as $book):?>
                 <div class="col s6 md3">
                     <div class="card z-depth-0">
+                        <img src="img/book.jpg" alt="" class="book">
                         <div class="card-content center">
+                            
                             <h6><?php echo htmlspecialchars($book['title']); ?> </h6>
                             <p><?php echo htmlspecialchars($book['description']); ?>)</p>
                             <h6><?php echo htmlspecialchars($book['price']); ?>DH</h6>
                             <div class="card-action right-align">
-                                <a href="#" class="brand-text">more info</a>
+                                <a href="detail.php?id=<?php echo $book['id']?>" class="brand-text">more info</a>
                             </div>
                         </div>
                     </div>
