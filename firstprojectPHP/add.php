@@ -1,5 +1,6 @@
 <?php include('template/header.php');
-    echo $_SESSION['nom'];?>
+     $name=$_SESSION['nom']
+     ?>
 <?php 
 
 
@@ -10,15 +11,7 @@ include('config/connect.php');
     $email=$title=$price=$desc='';
     if(isset($_POST['submit'])){
         
-        if(empty($_POST['email'])){
-            $errors['email'] ='An email is required <br/>';
-        }
-        else{
-            $email=$_POST['email'];
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $errors['email'] = 'email must be a valid email address';
-            }
-        }
+     
         if(empty($_POST['title'])){
             $errors['title'] ='An title is required <br/>';
         }
@@ -82,9 +75,7 @@ include('config/connect.php');
     <section class="container grey-text">
         <h4 class="center">add a book</h4>
         <form action="add.php" method="POST" class="white">
-            <label for="email">Your email:</label>
-            <input type="text" name="email" value="<?php echo $email; ?>">
-            <div class="red-text"><?php echo $errors['email']; ?> </div>
+            
             <label for="title">Book title:</label>
             <input type="text" name="title"  value="<?php echo $title; ?>">
             <div class="red-text"><?php echo $errors['title']; ?> </div>

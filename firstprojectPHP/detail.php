@@ -1,3 +1,7 @@
+<?php include('template/header.php');
+     $name=$_SESSION['nom']
+     ?>
+
 <?php
  include('config/connect.php');
     /* if(isset($_POST['delete'])){
@@ -26,7 +30,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include('template/header.php');?>
 <div class=" detail container center">
     <?php if($book): ?>
         <h4 ><?php echo htmlspecialchars($book['title']); ?></h4>
@@ -34,7 +37,7 @@
         <p > <?php echo htmlspecialchars($book['nom']); ?></p>
         <p ><?php echo date($book['created-at']); ?></p>
         <h5 >description:</h5>
-        <p ><?php echo htmlspecialchars($book['description']); ?></p>
+        <p  class="des"><?php echo htmlspecialchars($book['description']); ?></p>
         <h5>price:</h5>
         <p > <?php echo htmlspecialchars($book['price']); ?>DH</p>
 
@@ -43,7 +46,7 @@
         <?php else: ?>
             <h5>no such book exist</h5>
     <?php endif; ?>
-         <a href="acheter"><input type="submit" value="Acheter" name="" class="btn brand z-depth-0"></a> 
+         <a href="acheter.php"><input type="submit" value="Acheter" name="" class="btn brand z-depth-0"></a> 
 
 </div>
 <?php include('template/footer.php');?>

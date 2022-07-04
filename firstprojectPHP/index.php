@@ -21,7 +21,7 @@ mysqli_close($conn);
     <?php include('template/header.php');?>
     <h4 class="center grey-text">All Books</h4>
     <div class="container">
-        <div class="row">
+        <div class="row s6 md3">
             <?php foreach($books as $book):?>
                 <div class="col s6 md3">
                     <div class="card z-depth-0">
@@ -29,7 +29,7 @@ mysqli_close($conn);
                         <div class="card-content center">
                             
                             <h6><?php echo htmlspecialchars($book['title']); ?> </h6>
-                            <p><?php echo htmlspecialchars($book['description']); ?>)</p>
+                            <p class="des"><?php echo htmlspecialchars($book['description']); ?>)</p>
                             <h6><?php echo htmlspecialchars($book['price']); ?>DH</h6>
                             <div class="card-action right-align">
                                 <a href="detail.php?id=<?php echo $book['id']?>" class="brand-text">more info</a>

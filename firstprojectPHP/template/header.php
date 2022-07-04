@@ -61,6 +61,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['nom'])) {
              margin-left:40px;
              margin-top:20px;
         }
+        .des{
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="grey lighten-4">

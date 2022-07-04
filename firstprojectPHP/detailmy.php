@@ -38,7 +38,7 @@ include('config/connect.php');
         <h5>price:</h5>
         <p > <?php echo htmlspecialchars($book['price']); ?></p>
 
-        <form action="detail.php" method="POST">
+        <form action="detailmy.php" method="POST">
             <input type="hidden" name="id_to_delete" value="<?php echo $book['id'];?>">
             <input type="submit" value="Delete" name="delete" class="btn brand z-depth-0">
         </form>

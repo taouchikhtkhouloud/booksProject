@@ -48,7 +48,9 @@
             <input type="password" name="password">
             <div class="center">
                 <input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
+                
             </div>
+            <a href="signup.php" class="center brand-text z-depth-0">You don't have an account?</a>
         </form>
     </section>
     <?php include('template/footer.php');?>
